@@ -42,7 +42,7 @@
     <div class="container mx-auto px-6 sm:px-12 flex flex-col-reverse sm:flex-row items-center">
         <div class="sm:w-2/5 flex flex-col items-start mt-8 sm:mt-0">
             <h1 class="text-4xl lg:text-6xl leading-none mb-4"><strong class="font-black">Welcome </strong> Students</h1>
-            <p class="lg:text-lg mb-4 sm:mb-12">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam</p>
+            <p class="lg:text-lg mb-4 sm:mb-12">We provide skilled and competent workers through our institutional-based training programmes or through our ‘on-the-job’ training approaches such as the National Service Corps, and School-Leaver Training Opportunity Programme</p>
             <a href="{{route('Dashboard')}}" class="font-semibold text-lg bg-blue-500 hover:bg-blue-400 text-white py-3 px-10 rounded-full">Learn more</a>
         </div>
         <div class="sm:w-3/5">
