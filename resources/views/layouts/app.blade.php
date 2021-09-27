@@ -46,6 +46,6 @@
 
 @yield("content")
 
-
+{!! session('success') !!}
 </body>
 </html>
