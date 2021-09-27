@@ -15,6 +15,7 @@
         <li><a href="#" class="p-2">Home</a></li>
         <li><a href="{{route('Dashboard')}}" class="p-2">Dashboard</a></li>
         <li><a href="#" class="p-2">Course Selection</a></li>
+        <li><a href="{{ route('courses') }}"  class="p-2">Courses</a></li>
     </ul>
 
     <ul class="flex items-center">
