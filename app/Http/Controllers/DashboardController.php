@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\StudentSelection;
 use App\Models\Course;
-use App\Models\TypesOfCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,7 +20,7 @@ class DashboardController extends Controller
 
         $courses = Course::all();
 
-        return view('courseSelection', ['courses' => $courses])->with('course','selected');
+        return view('admin.courseSelection', ['courses' => $courses])->with('course','selected');
 
     }
 
