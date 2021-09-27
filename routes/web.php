@@ -52,16 +52,15 @@ Route::middleware('admin')->group(function(){
     Route::get("/admin/index",[AdminController::class,"index"])->name("Admin");
     Route::get('/admin/course', [AdminController::class, 'course'])->name('course');
     Route::get('/admin/type', [AdminController::class, 'courseType'])->name('courseType');
+    Route::get('/addtype', [AdminController::class, 'displayType'])->name('DisplayType');
     Route::post('/addtype',[AdminController::class,'addtype'])->name('AddCourseType');
-
+    Route::get('/admin/type/delete{id}', [AdminController::class, 'delete'])->name('deleteType');
+        Route::get('/admin/type/update{id}', [AdminController::class, 'displayCourseType'])->name('displayType');
+        Route::post('/admin/type/update', [AdminController::class, 'updateType'])->name('updateType');
     Route::get('/admin/selection', [AdminController::class, 'courseSelection'])->name('courseSelection');
     Route::get('/admin/course/update{id}', [AdminController::class, 'displayCourse'])->name('displayCourse');
     Route::post('/admin/course/update',[AdminController::class,'updateCourse'])->name('updateCourse');
 
     Route::get('/admin/course/delete{id}', [AdminController::class, 'delete'])->name('deleteCourse');
+
 });
-
-
-
-
-
