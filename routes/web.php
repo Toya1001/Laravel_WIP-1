@@ -23,6 +23,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
+
 
 
 Route::get("/login",[LoginController::class,"index"])->name("Login");
@@ -43,6 +48,7 @@ Route::post("/course_add",[DashboardController::class,"course_add"])->name("cour
 
 // Route::post("/added",[DashboardController::class,"added"])->name("added");
 
+Route::get("/courses",[DashboardController::class,"courses"])->name("courses");
 
 Route::get("/user/profile",[ProfileController::class,"index"])->name("Profile");
 Route::post("/user/profile/store",[ProfileController::class,"updateProfile"])->name("On-Update");
@@ -52,15 +58,19 @@ Route::middleware('admin')->group(function(){
     Route::get("/admin/index",[AdminController::class,"index"])->name("Admin");
     Route::get('/admin/course', [AdminController::class, 'course'])->name('course');
     Route::get('/admin/type', [AdminController::class, 'courseType'])->name('courseType');
+    Route::get('/addtype', [AdminController::class, 'displayType'])->name('DisplayType');
+    Route::post('/addtype',[AdminController::class,'addtype'])->name('AddCourseType');
+    Route::get('/admin/type/delete{id}', [AdminController::class, 'delete'])->name('deleteType');
+        Route::get('/admin/type/update{id}', [AdminController::class, 'displayCourseType'])->name('displayType');
+        Route::post('/admin/type/update', [AdminController::class, 'updateType'])->name('updateType');
     Route::get('/admin/selection', [AdminController::class, 'courseSelection'])->name('courseSelection');
     Route::get('/admin/course/update{id}', [AdminController::class, 'displayCourse'])->name('displayCourse');
     Route::post('/admin/course/update',[AdminController::class,'updateCourse'])->name('updateCourse');
 
     Route::get('/admin/course/delete{id}', [AdminController::class, 'delete'])->name('deleteCourse');
+
+<<<<<<< HEAD
+
+=======
 });
-
-
-
-
-
-
+>>>>>>> b756398713b708610770db699811083d95f951e4
