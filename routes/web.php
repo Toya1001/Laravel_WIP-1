@@ -42,6 +42,8 @@ Route::post("/logout",[LogoutController::class,"logout"])->name("Logout");
 
 Route::get("/dashboard",[DashboardController::class,"index"])->name("Dashboard");
 
+Route::get('mycourses', [DashboardController::class,'myCourses'])->name('myCourses');
+
 
 Route::get("/course_selection",[DashboardController::class,"course_selection"])->name("course_selcetion");
 Route::post("/course_add",[DashboardController::class,"course_add"])->name("course_add");
