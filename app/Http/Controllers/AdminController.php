@@ -95,11 +95,14 @@ class AdminController extends Controller
     }
 
     public function courseSelection(){
+        $student = StudentSelection::with(['Users', 'Courses'])->get()->toArray();
+        // dd($student);
         // $student = DB::table('student_selections')
-        //     ->join('users', 'users.id','=', 'student_selections')
+        //     ->join('users', 'users.id','=', 'student_selections.user_id')
+        //     ->join('courses','courses.id','=','student_selections.course_id')
         //     ->get();
-        
-        return view('admin.selections');
+        //     dd($student);
+        return view('admin.selections')->with(\compact('student'));
     }
 
     public function deleteType($id)
