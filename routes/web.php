@@ -69,8 +69,4 @@ Route::middleware('admin')->group(function(){
 
     Route::get('/admin/course/delete{id}', [AdminController::class, 'delete'])->name('deleteCourse');
 
-<<<<<<< HEAD
-
-=======
 });
->>>>>>> b756398713b708610770db699811083d95f951e4
