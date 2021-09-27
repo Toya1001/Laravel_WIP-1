@@ -47,6 +47,8 @@ Route::middleware('admin')->group(function(){
     Route::get("/admin/index",[AdminController::class,"index"])->name("Admin");
     Route::get('/admin/course', [AdminController::class, 'course'])->name('course');
     Route::get('/admin/type', [AdminController::class, 'courseType'])->name('courseType');
+    Route::post('/addtype',[AdminController::class,'addtype'])->name('AddCourseType');
+
     Route::get('/admin/selection', [AdminController::class, 'courseSelection'])->name('courseSelection');
     Route::get('/admin/course/update{id}', [AdminController::class, 'displayCourse'])->name('displayCourse');
     Route::post('/admin/course/update',[AdminController::class,'updateCourse'])->name('updateCourse');
