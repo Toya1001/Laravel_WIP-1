@@ -84,6 +84,10 @@ class AdminController extends Controller
         return redirect()->back();
     }
     public function courseSelection(){
+        // $student = DB::table('student_selections')
+        //     ->join('users', 'users.id','=', 'student_selections')
+        //     ->get();
+        
         return view('admin.courseSelection');
     }
 
