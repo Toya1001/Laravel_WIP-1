@@ -19,15 +19,15 @@
                 Course Selection
             
 
-            <form id="regForm" action="{{-- route('course_add') --}}" method="POST">
+            <form id="regForm" action="{{ route('course_add') }}" method="POST">
                 @csrf
                 
                 <center class="text-sm"><h1>Use the form below to select a course</h1><br>
                  
             <select class="w-full py-3 px-5 my-2 border-none" name="course_id">
-                {{-- @foreach ($courses as $course) --}}
-                    <option value="{{-- $course->id --}}">{{-- $course->course_name --}}</option>
-                {{-- @endforeach --}}
+                @foreach ($courses as $course)
+                    <option value="{{ $course->id }}">{{ $course->course_name }}</option>
+                @endforeach
             </select>
 
         </center>

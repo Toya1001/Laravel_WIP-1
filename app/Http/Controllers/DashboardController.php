@@ -29,14 +29,19 @@ class DashboardController extends Controller
 
     public function course_add(Request $request)
     {
+      
         StudentSelection::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::id(),
             'course_id' => $request->course_id,
             'enroll_dt' => now(),
             'is_approved' => 0,
         ]);
 
-        return redirect()->route('Dashboard');
+        $msg = "<script>
+        alertify.set('notifier','position', 'top-right');
+        alertify.success('Successfully Applied');
+        </script>";
+        return redirect()->route('Dashboard')->with(['success'=>$msg]);
     }
     public function courses(){
         $courses=Course::with('TypesOfCourses')->get();

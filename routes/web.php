@@ -20,41 +20,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Guest Routes
 Route::get('/', function () {
-    return view('index');
+    return redirect('/home');
 });
-
-Route::get('/home', function () {
-    return view('home');
-});
-
-
-
-
-Route::get("/login",[LoginController::class,"index"])->name("Login");
-Route::post("/log",[LoginController::class,"login"])->name("On-Login");
-
-
-Route::get("/register",[RegisterController::class,"index"])->name("Register");
-Route::post("/register/store",[RegisterController::class,"store"]);
-
-
-Route::post("/logout",[LogoutController::class,"logout"])->name("Logout");
-
+Route::view('/home','index');
 Route::get("/dashboard",[DashboardController::class,"index"])->name("Dashboard");
-
-
-Route::get("/course_selection",[DashboardController::class,"course_selection"])->name("course_selcetion");
+Route::get("/courses",[DashboardController::class,"courses"])->name("courses");
 Route::post("/course_add",[DashboardController::class,"course_add"])->name("course_add");
 
-// Route::post("/added",[DashboardController::class,"added"])->name("added");
+//Controllers for Registration and Login
+Route::get("/login",[LoginController::class,"index"])->name("Login");
+Route::post("/log",[LoginController::class,"login"])->name("On-Login");
+Route::get("/register",[RegisterController::class,"index"])->name("Register");
+Route::post("/register/store",[RegisterController::class,"store"]);
+Route::post("/logout",[LogoutController::class,"logout"])->name("Logout");
 
-Route::get("/courses",[DashboardController::class,"courses"])->name("courses");
+//student controllers 
+Route::middleware('auth')->group(function(){
+    Route::get("/course_selection",[DashboardController::class,"course_selection"])->name("course_selcetion");
+    Route::get("/user/profile",[ProfileController::class,"index"])->name("Profile");
+    Route::post("/user/profile/store",[ProfileController::class,"updateProfile"])->name("On-Update");
+});
 
-Route::get("/user/profile",[ProfileController::class,"index"])->name("Profile");
-Route::post("/user/profile/store",[ProfileController::class,"updateProfile"])->name("On-Update");
 
-// Admin
+// Admin session
 Route::middleware('admin')->group(function(){
     Route::get("/admin/index",[AdminController::class,"index"])->name("Admin");
     Route::get('/admin/course', [AdminController::class, 'course'])->name('course');
