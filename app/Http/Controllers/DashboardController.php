@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\StudentSelection;
 use App\Models\Course;
-use App\Models\TypesOfCourse;
+use App\Models\StudentSelection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
