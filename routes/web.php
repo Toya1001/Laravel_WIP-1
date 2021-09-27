@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminCourse;
 use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
@@ -63,12 +64,12 @@ Route::middleware('admin')->group(function(){
     Route::get('/addtype', [AdminController::class, 'displayType'])->name('DisplayType');
     Route::post('/addtype',[AdminController::class,'addtype'])->name('AddCourseType');
     Route::get('/admin/type/delete{id}', [AdminController::class, 'delete'])->name('deleteType');
-        Route::get('/admin/type/update{id}', [AdminController::class, 'displayCourseType'])->name('displayType');
-        Route::post('/admin/type/update', [AdminController::class, 'updateType'])->name('updateType');
+    Route::get('/admin/type/update{id}', [AdminController::class, 'displayCourseType'])->name('displayType');
+    Route::post('/admin/type/update', [AdminController::class, 'updateType'])->name('updateType');
     Route::get('/admin/selection', [AdminController::class, 'courseSelection'])->name('courseSelection');
     Route::get('/admin/course/update{id}', [AdminController::class, 'displayCourse'])->name('displayCourse');
     Route::post('/admin/course/update',[AdminController::class,'updateCourse'])->name('updateCourse');
-
+    Route::resource('admincourse', AdminCourse::class);
     Route::get('/admin/course/delete{id}', [AdminController::class, 'delete'])->name('deleteCourse');
 
 });
