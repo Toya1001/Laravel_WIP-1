@@ -88,7 +88,7 @@ class AdminController extends Controller
         //     ->join('users', 'users.id','=', 'student_selections')
         //     ->get();
         
-        return view('admin.courseSelection');
+        return view('admin.selections');
     }
 
     public function deleteType($id)

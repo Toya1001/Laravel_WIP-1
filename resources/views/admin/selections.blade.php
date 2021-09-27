@@ -34,22 +34,21 @@ Students
                 </tr>
             </thead>
             <tbody class="bg-blue-200 lg:text-black">
-                <!-- @foreach($selections as $info) -->
-                <tr>
-                    <!-- <td class="p-3">{{$info->id}}</td>
-                    <td class="p-3 uppercase">{{$info->Courses->course_name}}</td>
-                    <td class="p-3">{{$info->enroll_dt}}</td>
-                    @if($info->is_approved==1)
+                {{-- @foreach($selections as $info)  --}}
+                     <td class="p-3">{{--$info->id--}}</td>
+                    <td class="p-3 uppercase">{{--$info->Courses->course_name--}}</td>
+                    <td class="p-3">{{--$info->enroll_dt--}}</td>
+                    {{-- @if($info->is_approved==1) --}}
                         <td class="p-3">Approved</td>
-                    @elseif($info->is_approved==2)
+                    {{-- @elseif($info->is_approved==2)
                         <td class="p-3">Rejected</td>
                     @else
                         <td class="p-3">Pending</td>
-                    @endif
-                   <td> <a class="hover:bg-green-300" href="{{url('/Selection/Approve/'.$info->id)}}">Approve</a>
-                   <a class="hover:bg-red-300" href="{{url('/Selection/Reject/'.$info->id)}}">Deny</a></td>
+                    @endif --}}
+                   <td> <a class="hover:bg-green-300" href="{{--url('/Selection/Approve/'.$info->id)--}}">Approve</a>
+                   <a class="hover:bg-red-300" href="{{--url('/Selection/Reject/'.$info->id)--}}">Deny</a></td>
                 </tr>
-                @endforeach -->
+                {{-- @endforeach --}}
             </tr>
             </tbody>
         </table>
