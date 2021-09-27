@@ -49,4 +49,10 @@ class DashboardController extends Controller
             'courses'=>$courses,
         ]);
     }
+
+    public function myCourses(){
+        $students=StudentSelection::with(['Users','Courses'])->where('id',(auth()->user()->id))->get()->toArray();
+        
+        return view('auth.myCourses', compact('students'));
+    }
 }
