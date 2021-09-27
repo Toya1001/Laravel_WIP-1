@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Course;
 use App\Models\StudentSelection;
+
+use App\Models\TypesOfCourse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,5 +37,11 @@ class DashboardController extends Controller
         ]);
 
         return redirect()->route('Dashboard');
+    }
+    public function courses(){
+        $courses=Course::with('TypesOfCourses')->get();
+        return view('courses',[
+            'courses'=>$courses,
+        ]);
     }
 }
