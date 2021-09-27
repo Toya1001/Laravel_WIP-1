@@ -29,7 +29,9 @@
     </div>
         <div class="big_card bg-white h-7/12">
             <h1>Most Recent Course Selection</h1>
-            
+            @foreach($recent as $info)
+                <p>{{$info->course_name}}</p>
+            @endforeach
         </div>
     </div>
 

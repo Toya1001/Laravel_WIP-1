@@ -18,7 +18,7 @@ class AdminController extends Controller
         $approved= StudentSelection::where('is_approved',1)->count();
         $course=Course::all()->count();
         $category=TypesOfCourse::all()->count();
-        $recent=StudentSelection::latest('enroll_dt')->get();
+        $recent=StudentSelection::orderby('id','desc')->get();
 
         return view('admin.index',compact('students', 'approved', 'course','category', 'recent'));
     }
@@ -59,6 +59,19 @@ class AdminController extends Controller
 
     public function courseType(){
         return view('admin.courseType');
+    }
+    public function addtype(Request $request){
+        $this->validate($request,[
+            'coursetype'=>'required | unique:types_of_courses,course_type',
+            'desc'=>'required | unique:types_of_courses,desc'
+        ]);
+
+        TypesOfCourse::create([
+            'course_type'=>$request->coursetype,
+            'desc'=>$request->desc
+        ]);
+
+        return redirect()->back();
     }
     public function courseSelection(){
         return view('admin.courseSelection');

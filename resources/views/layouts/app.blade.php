@@ -12,7 +12,7 @@
 
 <nav class="p-4 text-black border bg-white w-screen flex justify-between mb-6 items-center">
     <ul class="flex items-center">
-        <li><a href="#" class="p-2">Home</a></li>
+        <li><a href="/home" class="p-2">Home</a></li>
         <li><a href="{{route('Dashboard')}}" class="p-2">Dashboard</a></li>
         <li><a href="#" class="p-2">Course Selection</a></li>
         <li><a href="{{ route('courses') }}"  class="p-2">Courses</a></li>
