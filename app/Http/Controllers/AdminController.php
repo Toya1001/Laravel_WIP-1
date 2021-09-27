@@ -58,15 +58,25 @@ class AdminController extends Controller
     }
 
     public function courseType(){
-        return view('admin.courseType');
+        $types=TypesOfCourse::all();
+        // dd($types);
+        return view('admin.courseType', compact('types'));
+    }
+
+    public function displayType()
+    {
+    
+        return view('admin.addcourseType');
     }
     public function addtype(Request $request){
         $this->validate($request,[
+            'coursetype_id' => 'required | unique:types_of_courses,id',
             'coursetype'=>'required | unique:types_of_courses,course_type',
             'desc'=>'required | unique:types_of_courses,desc'
         ]);
 
         TypesOfCourse::create([
+            'id'=>$request->coursetype_id,
             'course_type'=>$request->coursetype,
             'desc'=>$request->desc
         ]);
@@ -75,5 +85,38 @@ class AdminController extends Controller
     }
     public function courseSelection(){
         return view('admin.courseSelection');
+    }
+
+    public function deleteType($id)
+    {
+        $types = Course::find($id);
+        $types->delete();
+
+        return redirect()->back()->with('update_status', 'Course deleted!');
+    }
+
+    public function updateType(Request $request)
+    {
+        $id = $request->type_id;
+        // dd($id);
+
+        TypesOfCourse::find($id)->update([
+            'course_type' => $request->type_name,
+            'desc' => $request->type_desc
+        ]);
+
+        return redirect()->back()->with('update_status', 'Update Successful');
+    }
+
+    public function displayCourseType($id)
+    {
+        $types = TypesOfCourse::find($id);
+        // dd($types);
+        return view('admin.updateType', compact('types'));
+    }
+
+    public function selection(){
+        StudentSelection::all();
+
     }
 }
