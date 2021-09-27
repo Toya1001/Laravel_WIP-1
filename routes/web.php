@@ -23,6 +23,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
+
 
 
 Route::get("/login",[LoginController::class,"index"])->name("Login");
