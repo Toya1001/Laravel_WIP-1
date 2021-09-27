@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+<<<<<<< HEAD
+use App\Models\StudentSelection;
+=======
 use App\Models\TypesOfCourse;
+>>>>>>> b756398713b708610770db699811083d95f951e4
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -13,11 +18,25 @@ class DashboardController extends Controller
         return view("auth.dashboard");
 
     }
+    public function course_selection() {
 
-    public function courses(){
-        $courses=Course::with('TypesOfCourses')->get();
-        return view('courses',[
-            'courses'=>$courses,
+        session()->put('course','selected');
+
+        $courses = Course::all();
+
+        return view('courseSelection', ['courses' => $courses])->with('course','selected');
+
+    }
+
+    public function course_add(Request $request)
+    {
+        StudentSelection::create([
+            'user_id' => Auth::user()->id,
+            'course_id' => $request->course_id,
+            'enroll_dt' => now(),
+            'is_approved' => 0,
         ]);
+
+        return redirect()->route('Dashboard');
     }
 }

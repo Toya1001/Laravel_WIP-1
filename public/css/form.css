@@ -1,0 +1,16 @@
+#regForm {
+    width: 80% !important;
+    height: 50%;
+}
+#shit {
+    width: 50%;
+}
+
+@media screen {
+    #regform {
+        width: 100% !important;
+    }
+    #shit {
+        width: 100% !important;
+    }
+}

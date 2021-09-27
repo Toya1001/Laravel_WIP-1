@@ -6,6 +6,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="sweetalert2.min.css">
+    
+    <link rel="stylesheet" href="css/form.css">
+
+
     <title>@yield("page_title")</title>
 </head>
 <body>
@@ -14,7 +19,7 @@
     <ul class="flex items-center">
         <li><a href="/home" class="p-2">Home</a></li>
         <li><a href="{{route('Dashboard')}}" class="p-2">Dashboard</a></li>
-        <li><a href="#" class="p-2">Course Selection</a></li>
+        <li><a href="{{ route('course_selcetion') }}" class="p-2">Course Selection</a></li>
         <li><a href="{{ route('courses') }}"  class="p-2">Courses</a></li>
     </ul>
 

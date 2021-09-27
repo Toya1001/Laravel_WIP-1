@@ -95,7 +95,11 @@ class AdminController extends Controller
     }
 
     public function courseSelection(){
-        return view('admin.courseSelection');
+        // $student = DB::table('student_selections')
+        //     ->join('users', 'users.id','=', 'student_selections')
+        //     ->get();
+        
+        return view('admin.selections');
     }
 
     public function deleteType($id)
