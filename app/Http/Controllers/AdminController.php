@@ -74,15 +74,26 @@ class AdminController extends Controller
             'coursetype'=>'required | unique:types_of_courses,course_type',
             'desc'=>'required | unique:types_of_courses,desc'
         ]);
-
+                // $count=TypesOfCourse::where('id', $request->coursetype_id)
+                // ->where('course_type', $request->coursetype)->count();
+               
+          if (TypesOfCourse::where('course_type','=', $request->coursetype)->count() ==1){
+              return redirect()->back()->with('update_status', 'Type Already Exists');
+           } else if(TypesOfCourse::where('id','=', $request->coursetype_id)->count()==1){
+             return redirect()->back()->with('update_status', 'Type Already Exists');
+              }
+          else{
         TypesOfCourse::create([
             'id'=>$request->coursetype_id,
             'course_type'=>$request->coursetype,
             'desc'=>$request->desc
         ]);
-
-        return redirect()->back();
+            return redirect()->back()->with('update_status', 'New Type Added');
     }
+
+        
+    }
+
     public function courseSelection(){
         return view('admin.courseSelection');
     }

@@ -6,7 +6,15 @@
 
 @section('content')
 
+
+
         <center style="margin-top: 140px;">
+
+            @if (session()->has('update_status'))
+            <div class=" bg-green-500 p-4 rounded-lg text-white text-center mb-6">
+                {{session('update_status')}}
+            </div>
+            @endif
         <form action="{{ route('AddCourseType') }}" method="POST"
             style="width: 50%;background: whitesmoke;padding: 10px;border-radius: 20px;box-shadow: 0px 0px 4px 0px #0e46b5;">
             @csrf
