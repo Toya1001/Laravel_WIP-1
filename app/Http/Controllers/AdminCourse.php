@@ -76,7 +76,7 @@ class AdminCourse extends Controller
 
         $msg = "<script>
                 alertify.set('notifier','position', 'top-right');
-                alertify.success('Approved Success);
+                alertify.success('Approved Success');
                 </script>";
 
         return \redirect()->back()->with(['success'=>$msg]);
@@ -91,7 +91,14 @@ class AdminCourse extends Controller
     public function destroy($id)
     {
         $student = StudentSelection::find($id);
-        $student->is_approved = 1;
+        $student->is_approved = 2;
         $student->save();
+
+        $msg = "<script>
+        alertify.set('notifier','position', 'top-right');
+        alertify.error('Denied Success');
+        </script>";
+
+return \redirect()->back()->with(['success'=>$msg]);
     }
 }
