@@ -23,9 +23,9 @@ Students
                 </tr>
             </thead>
             <tbody class="bg-blue-200 lg:text-black">
-                @foreach($selections as $info)
+                <!-- @foreach($selections as $info) -->
                 <tr>
-                    <td class="p-3">{{$info->id}}</td>
+                    <!-- <td class="p-3">{{$info->id}}</td>
                     <td class="p-3 uppercase">{{$info->Courses->course_name}}</td>
                     <td class="p-3">{{$info->enroll_dt}}</td>
                     @if($info->is_approved==1)
@@ -34,9 +34,9 @@ Students
                         <td class="p-3">Rejected</td>
                     @else
                         <td class="p-3">Pending</td>
-                    @endif
+                    @endif -->
                 </tr>
-                @endforeach
+                <!-- @endforeach -->
             </tbody>
         </table>
     </div>
